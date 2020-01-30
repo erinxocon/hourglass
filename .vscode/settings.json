@@ -1,0 +1,11 @@
+{
+    "[dockerfile]": {
+        "editor.formatOnSave": false
+    },
+    "[yaml]": {
+        "editor.tabSize": 4
+    },
+    "cSpell.enabled": false,
+    "editor.formatOnSave": true,
+    "python.formatting.blackArgs": ["--line-length", "99"]
+}
