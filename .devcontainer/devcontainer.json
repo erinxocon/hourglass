@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.101.0/containers/docker-in-docker
+{
+    "name": "Docker in Pybuntu",
+    "dockerFile": "Dockerfile",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+        "source=/Users/erin/repos/hourglass/.history,target=/root/commandhistory,type=bind"
+    ],
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-python.python",
+        "bungcip.better-toml",
+        "coenraads.bracket-pair-colorizer-2",
+        "waderyan.gitblame",
+        "oderwat.indent-rainbow",
+        "mechatroner.rainbow-csv",
+        "redhat.vscode-yaml",
+        "timonwong.shellcheck",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-azuretools.vscode-docker"
+    ],
+    "shutdownAction": "stopContainer",
+    "postCreateCommand": "pipenv install --dev --system"
+}
