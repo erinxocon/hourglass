@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 ipython = "*"
 mypy = "*"
+black = "==19.10b0"
 
 [packages]
 aiodocker = "*"
