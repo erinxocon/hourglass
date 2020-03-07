@@ -9,7 +9,8 @@ mypy = "*"
 black = "==19.10b0"
 
 [packages]
-aiodocker = "*"
+master = {editable = true,git = "https://github.com/erinxocon/aiodocker.git",ref = "master"}
+croniter = "*"
 
 [requires]
 python_version = "3.7"
