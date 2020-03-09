@@ -1,4 +1,4 @@
-FROM jetblackpope/pybuntu:3.7-bionic
+FROM jetblackpope/pybuntu:3.8-bionic
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV PIPENV_MAX_SUBPROCESS 64

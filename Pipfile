@@ -11,6 +11,7 @@ black = "==19.10b0"
 [packages]
 master = {editable = true,git = "https://github.com/erinxocon/aiodocker.git",ref = "master"}
 croniter = "*"
+pytz = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
