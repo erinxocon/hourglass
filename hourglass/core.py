@@ -15,10 +15,7 @@ Future = asyncio.Future
 
 async def t():
     now = datetime.now(tz=timezone("America/Denver"))
-    print(f"hello world! @ {now.isoformat()}")
-
-
-null_coro = t()
+    print(f"hello world! @ {now.strftime('%T%t%f')}")
 
 
 class CronJob:
@@ -26,9 +23,9 @@ class CronJob:
         # populate from args and kwargs
         self.cron_expr = cron_expr
         self.time_zone = timezone("UTC") if time_zone is None else timezone(time_zone)
+        self.loop = loop if loop is not None else asyncio.get_event_loop()
 
         # set some initial things
-        self.loop = loop if loop is not None else asyncio.get_event_loop()
         self.uuid = uuid.uuid4()
         self.croniter: croniter = None
         self.timer_handle: TimerHandle = None
@@ -53,8 +50,11 @@ class CronJob:
         self.init_croniter()
         self.future = self.loop.create_future()
         next_time = self.get_next_loop_time()
+        print(f"Next: {next_time}")
         self.timer_hande = self.loop.call_at(next_time, self.callback)
-        print(f"About to await the future @ {self.datetime.isoformat()}")
+        print(
+            f"About to await the future @ {datetime.now(tz=timezone('America/Denver')).strftime('%T%t%f')}"
+        )
         return await self.future
 
     def get_next_loop_time(self) -> float:
