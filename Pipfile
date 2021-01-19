@@ -5,11 +5,11 @@ verify_ssl = true
 
 [dev-packages]
 ipython = "*"
-mypy = "*"
-black = "==19.10b0"
+black = "==20.8b1"
 
 [packages]
-master = {editable = true,git = "https://github.com/erinxocon/aiodocker.git",ref = "master"}
+aiodocker = "*"
+# aiodocker = {editable = true,git = "https://github.com/erinxocon/aiodocker.git",ref = "master"}
 croniter = "*"
 pytz = "*"
 

@@ -3,10 +3,17 @@
 {
     "name": "Docker in Pybuntu",
     "dockerFile": "Dockerfile",
+    "runArgs": [
+        "--init"
+    ],
     "mounts": [
         "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-        "source=/Users/erin/repos/hourglass/.history,target=/root/commandhistory,type=bind"
+        "source=hourglass-bashhistory,target=/commandhistory,type=volume",
+        "source=hourglass-extensions,target=/home/erin/.vscode-server-insiders/extensions,type=volume",
+        "source=virtualenvs,target=/home/erin/.local/virtualenvs,type=volume"
     ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/code,type=bind,consistency=delegated",
+    "workspaceFolder": "/code",
     // Set *default* container specific settings.json values on container create.
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
@@ -17,12 +24,13 @@
         "coenraads.bracket-pair-colorizer-2",
         "waderyan.gitblame",
         "oderwat.indent-rainbow",
-        "mechatroner.rainbow-csv",
         "redhat.vscode-yaml",
         "timonwong.shellcheck",
         "visualstudioexptteam.vscodeintellicode",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "ms-python.vscode-pylance"
     ],
     "shutdownAction": "stopContainer",
-    "postCreateCommand": "pipenv install --dev --system"
+    // "postCreateCommand": "sudo /usr/local/src/script.sh",
+    "remoteUser": "erin",
 }

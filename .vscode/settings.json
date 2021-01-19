@@ -5,13 +5,13 @@
     "[yaml]": {
         "editor.tabSize": 4
     },
-    "cSpell.enabled": false,
     "editor.formatOnSave": true,
-    "python.formatting.blackPath": "/usr/local/bin/black",
+    "python.formatting.blackPath": "black",
     "python.formatting.blackArgs": [
         "--line-length",
         "99"
     ],
-    "python.pythonPath": "/usr/local/bin/python",
-    "python.jediEnabled": false
+    "python.pythonPath": "/home/erin/.local/share/virtualenvs/hourglass-pr4CbCKy/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.languageServer": "Pylance"
 }

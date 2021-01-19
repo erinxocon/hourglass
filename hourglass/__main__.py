@@ -1,13 +1,11 @@
 import asyncio
 
 from .core import CronJob
-from datetime import datetime
-from pytz import timezone
 
 
 async def main():
-    cron = CronJob("* * * * * */30", time_zone="America/Denver")
-    for i in range(40):
+    cron = CronJob("* * * * * */5", time_zone="America/Denver")
+    for i in range(400):
         print(f"i: {i}")
         await cron.next()
 
